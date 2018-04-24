@@ -1,0 +1,10 @@
+"use strict";
+var index_1 = require('./index');
+exports.UserRoutes = [
+    {
+        path: '',
+        component: index_1.UserSystemComponent
+    }
+];
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9ob21lL2NvbmZpZy91c2VyLXN5c3RlbS91c2VyLXN5c3RlbS5yb3V0ZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBLHNCQUFvQyxTQUFTLENBQUMsQ0FBQTtBQUVqQyxrQkFBVSxHQUFZO0lBQ2pDO1FBQ0UsSUFBSSxFQUFFLEVBQUU7UUFDUixTQUFTLEVBQUUsMkJBQW1CO0tBQy9CO0NBQ0YsQ0FBQyIsImZpbGUiOiJhcHAvaG9tZS9jb25maWcvdXNlci1zeXN0ZW0vdXNlci1zeXN0ZW0ucm91dGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUm91dGUgfSBmcm9tICdAYW5ndWxhci9yb3V0ZXInO1xuaW1wb3J0IHsgVXNlclN5c3RlbUNvbXBvbmVudCB9IGZyb20gJy4vaW5kZXgnO1xuXG5leHBvcnQgY29uc3QgVXNlclJvdXRlczogUm91dGVbXSA9IFtcbiAge1xuICAgIHBhdGg6ICcnLFxuICAgIGNvbXBvbmVudDogVXNlclN5c3RlbUNvbXBvbmVudFxuICB9XG5dO1xuIl19

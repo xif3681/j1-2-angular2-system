@@ -1,0 +1,14 @@
+
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="modal-title">{{title|translate}}</p>
+</div>
+<div class="modal-body">
+  <p>{{body|translate}}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close(true)" translate>确定</button>
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close(false)" translate>取消</button>
+</div>

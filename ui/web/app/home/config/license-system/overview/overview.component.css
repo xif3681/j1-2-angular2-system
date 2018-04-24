@@ -1,0 +1,50 @@
+
+.panel {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 20px;
+  padding-left: 40px;
+}
+.thumbnail {
+  display: block;
+  padding: 4px;
+  width: 260px;
+  float: left;
+  margin: 0 10px;
+  /*margin-bottom: 20px;*/
+  line-height: 1.42857143;
+  height: 88px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border .2s ease-in-out;
+}
+.thumbnail .caption span {
+  display: inline-block;
+  padding: 5px;
+
+}
+.thumbnail .caption p {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 10px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+
+}
+
+
+
+
+

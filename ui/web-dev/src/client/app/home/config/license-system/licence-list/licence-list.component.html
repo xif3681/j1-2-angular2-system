@@ -1,0 +1,61 @@
+
+<div class="panel">
+  <div class="licence-list-btns">
+    <button type="button" class="my-btn" (click)="addCode()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<span translate>添加授权码</span></button>
+    &nbsp;&nbsp;
+    <button type="button" class="my-btn" (click)="seeCode()" translate>查看机器码</button>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <th *ngFor="let item of tHeadLicenceListNames">{{item|translate}}</th>
+      </thead>
+      <tbody  *ngFor="let item of licenceListAll;let i = index;" class="table-striped">
+        <tr>
+          <td (click)="toggleLicenceDetail(item)" style="width: 30px"><i [ngClass]="item.faCaretType" class="fa" aria-hidden="true"></i></td>
+          <td style="width: 300px;text-align: left">{{item.name}}</td>
+          <td *ngIf="item.type == 'base'" translate>基本件</td>
+          <td *ngIf="item.type == 'test'" translate>测试授权码</td>
+          <td *ngIf="item.type == 'daily'||item.type == 'datanode'" translate>代理</td>
+          <td *ngIf="item.validDate == -1" translate>无限制</td>
+          <td *ngIf="item.validDate !== -1">{{item.validDate}}<span translate>天</span></td>
+          <td *ngIf="item.dailyTraffic !== -1">{{item.dailyTraffic}}GB</td>
+          <td *ngIf="item.dailyTraffic == -1" translate>无限制</td>
+          <td *ngIf="item.status ==  0" class="gray" translate>未激活</td>
+          <td *ngIf="item.status ==  1" class="green" translate>已激活</td>
+          <td *ngIf="item.status ==  2" class="red" translate>已过期</td>
+          <td *ngIf="item.status ==  3" class="red" translate>已失效</td>
+          <td>
+            <span *ngIf="item.status ==  0" class="btn-suc" (click)="actCode(item)" placement="bottom" ngbTooltip='{{"激活授权码"|translate}}'><i class="fa fa-key" aria-hidden="true"></i></span>
+            <span *ngIf="item.status ==  1||item.status ==  2||item.status ==  3" class="btn-suc disableAct"  placement="bottom" ngbTooltip='{{"激活授权码"|translate}}'><i class="fa fa-key" aria-hidden="true"></i></span>
+            &nbsp;
+            <span class="btn-del" (click)="delCode(item)" placement="bottom" ngbTooltip='{{"删除授权码"|translate}}'><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+          </td>
+        </tr>
+        <tr [ngClass]="item.licenceDetail" class="licence-detail">
+          <td></td>
+          <td colspan="6">
+                <p>
+                  <label translate>序列号：</label>
+                  <span>{{item.serial}}</span>
+                </p>
+                <p>
+                  <label translate>激活时间：</label>
+                  <span *ngIf="item.activeTime == -1">---</span>
+                  <span *ngIf="item.activeTime !== -1">{{item.activeTime}}</span>
+                  &nbsp;&nbsp;
+                  <label translate>到期时间：</label>
+                  <span *ngIf="item.expireTime == -1">---</span>
+                  <span *ngIf="item.expireTime !== -1">{{item.expireTime}}</span>
+                </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--分页-->
+  <ar-pagination-advanced (changCurPageNum)="onCurPageNum($event)" (changCurPage)="onCurPage($event)" (changPage)="onPage($event)" [toLicenseCountMe]="licenseCountMe"></ar-pagination-advanced>
+
+</div>
+
+

@@ -1,0 +1,29 @@
+
+<div class="panel">
+  <div class="panel-body">
+    <div class="row">
+        <div class="thumbnail">
+          <div class="caption">
+            <span translate>授权码激活状态</span>
+            <p  *ngIf="overviews"><span>{{overviews.active}}/{{overviews.total}}</span><span translate>个</span></p>
+          </div>
+        </div>
+        <div class="thumbnail">
+          <div class="caption">
+            <span translate>今日数据流量使用情况</span>
+            <p *ngIf="overviews&&overviews.authorizedDailyTraffic==-1"><span>{{overviews.usedDailyTraffic}}GB/{{'无限制'|translate}}</span></p>
+            <p *ngIf="overviews&&overviews.authorizedDailyTraffic!==-1"><span>{{overviews.usedDailyTraffic}}/{{overviews.authorizedDailyTraffic}}</span><span>GB</span></p>
+          </div>
+        </div>
+        <div class="thumbnail">
+          <div class="caption">
+            <span translate>授权使用天数</span>
+            <p *ngIf="overviews&&overviews.authStatus==1" translate>无限制</p>
+            <p *ngIf="overviews&&overviews.authStatus==2"><span>{{overviews.validTime-overviews.remainingTime}}/{{overviews.validTime}}</span><span translate>天</span></p>
+            <p *ngIf="overviews&&overviews.authStatus!==1&&overviews.authStatus!==2">---</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

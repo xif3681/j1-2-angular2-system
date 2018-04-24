@@ -1,0 +1,49 @@
+<div class="main-container">
+  <i class="fa fa-refresh refresh" [class.fa-spin]="PendingServerRollListAllRefresh == 0" aria-hidden="true" (click)="refresh()"></i>
+  <div class="panel">
+    <div class="licence-list-btns">
+      <button type="button" class="my-btn" (click)="addRoll()" [disabled]="PendingServerRollListAll==0||unAddRoll==1"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<span translate>创建卷</span></button>
+
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <th *ngFor="let item of tHeadLicenceListNames">{{item|translate}}</th>
+        </thead>
+        <tbody  *ngFor="let item of rollListAll;let i = index;" class="table-striped">
+          <tr  *ngIf="PendingServerRollListAll==1&&rollListAll.length!=0">
+            <td>{{item.lv_name}}</td>
+            <td>
+              <span class="progress-span">{{item.lv_used_percent}}%</span>
+              <ngb-progressbar type="success" [value]="item.lv_used_percent"></ngb-progressbar>
+            </td>
+            <td>{{item.lv_capacity}}</td>
+            <td>{{item.lv_avalible_capacity}}</td>
+            <td>{{item.raid_name}}</td>
+            <td *ngIf="item.lv_type == 'data'||item.lv_type == null" translate>数据卷</td>
+            <td  *ngIf="item.lv_status == 0" translate>正常</td>
+            <td  *ngIf="item.lv_status == 1" class="red" translate>异常</td>
+            <td  *ngIf="item.lv_status == 2" class="green" translate>创建中</td>
+            <td>
+              <span class="btn-suc" [hidden]="item.has_raid_recon == 1"  *ngIf="item.lv_status == 0" (click)="configRoll(item)" placement="bottom" ngbTooltip='{{"配置卷"|translate}}'><i class="fa fa-pencil" aria-hidden="true"></i></span>
+              &nbsp;
+              <span class="btn-del" [hidden]="item.has_raid_recon == 1" *ngIf="item.lv_status == 0 || item.lv_status == 1"(click)="delRoll(item,i)" placement="bottom" ngbTooltip='{{"删除卷"|translate}}'><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <!--初始化的时候-->
+      <div>
+        <p class="load" *ngIf="PendingServerRollListAll==0">
+          <span translate>正在获取卷信息</span>
+          <i class="fa fa-spinner fa-pulse" aria-hidden="true"></i>
+        </p>
+      </div>
+      <div class="load" *ngIf="PendingServerRollListAll==1&&rollListAll.length == 0" translate>
+        暂无卷信息
+      </div>
+    </div>
+  </div>
+</div>
+

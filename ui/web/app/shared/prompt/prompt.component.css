@@ -1,0 +1,13 @@
+.prompt {
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-size: 15px;
+  z-index: 1041;
+}
+.alert-danger {
+  margin: 1px;
+}

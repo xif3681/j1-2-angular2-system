@@ -1,0 +1,12 @@
+
+<div class="handle" *ngIf="PendStatus == 1">
+  <div><span>{{PendStatusEn|translate}}</span><span translate>中</span></div>
+  <div><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i></div>
+</div>
+<span *ngIf="btnItem.status==2||btnItem.status==3" class="btn-suc" (click)="btnstatus(alertDif,btnItem.name,'start',btnItem.container)" placement="bottom" ngbTooltip='{{"启动"|translate}}'><i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+
+<span *ngIf="btnItem.status==0||btnItem.status==1||btnItem.status==4||btnItem.status==5||btnItem.status==6" class="btn-suc" (click)="btnstatus(alertDif,btnItem.name,'restart',btnItem.container)" placement="bottom" ngbTooltip='{{"重启"|translate}}'><i class="fa fa-undo" aria-hidden="true"></i></span>
+&nbsp;
+<!--anyrobot-manager的容器和服务不能停止-->
+<span class="btn-del" *ngIf="btnItem.name !== 'anyrobot-manager'&&btnItem.name !== 'manage_server'&&btnItem.name !== 'mysql'" (click)="btnstatus(alertDif,btnItem.name,'stop',btnItem.container)" placement="bottom" ngbTooltip='{{"停止"|translate}}'><i class="fa fa-stop-circle-o" aria-hidden="true"></i></span>
+<span class="btn-del-disable"  *ngIf="btnItem.name == 'anyrobot-manager'||btnItem.name == 'manage_server'||btnItem.name == 'mysql'" placement="bottom"  ngbTooltip='{{"停止"|translate}}'><i class="fa fa-stop-circle-o" aria-hidden="true"></i></span>

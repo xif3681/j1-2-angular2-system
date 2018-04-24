@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2016-12-09 11:37+CST\n"
+"Last-Translator:Li Guangyou <li.guangyou@eisoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+msgid "ID_DOCKER_SERVICE_CAN_NOT_LINK"
+msgstr "Cannot connect to Docker service"
+
+msgid "ID_SERVER_ERROR"
+msgstr "Server Error"
+
+msgid "ID_CONTAINER_IN_DEAD"
+msgstr "Container Exception"
+
+msgid "ID_CONTAINER_DOES_NOT_EXIST"
+msgstr "Container does not exist"
+
+msgid "ID_LINK_ERROR"
+msgstr "Connection Error"
+
+msgid "ID_OPERATE_SERVICE_EXIST_FAULT"
+msgstr "Error while operating the service"
+
+msgid "ID_SERVICE_STATUS_IN_FATAL"
+msgstr "Service is in an error state"
+
+msgid "ID_MEGACLI_NOT_FOUND"
+msgstr "MegaCLI Management Tool not found"
+
+msgid "ID_SLOT_NUMBER_INVALID"
+msgstr "Invalid slot number"
+
+msgid "ID_INVALID_COMMAND"
+msgstr "Invalid MegaCLI Command"
+
+msgid "ID_MAXIMUM_LDS_ALREADY_CONFIGURED"
+msgstr "The number of RAID has reached its maximum"
+
+msgid "ID_RAID_NAME_HAS_BEEN_USED"
+msgstr "The RAID name is already in use"
+
+msgid "ID_RAID_LEVEL_OR_DISK_NUMBER_OR_STRIPSZ_ERROR"
+msgstr "At least one error in the RAID level, disk slot number, and strip size"
+
+msgid "ID_RAID_NOT_FOUND"
+msgstr "RAID not found"
+
+msgid "ID_RECONSTRUCTION_IN_PROGRESS"
+msgstr "Reconstructing RAID"
+
+msgid "ID_RAID_HAS_LV"
+msgstr "A logical volume exists on a RAID"
+
+msgid "ID_RAID_CAN_NOT_RECONSTRUCT"
+msgstr "Cannot reconstruct RAID"
+
+msgid "ID_EXISTS_RAID_RECON"
+msgstr "There is a RAID in the reconstruct state"
+
+msgid "ID_LV_NAME_HAS_BEEN_USED"
+msgstr "The logical volume name is already in use"
+
+msgid "ID_LV_NOT_FOUND"
+msgstr "Logical volume not found"
+
+msgid "ID_INVALID_LV_CAPACITY"
+msgstr "Invalid logical volume"
+
+msgid "ID_LV_HAS_LINK_DATA_SOURCE"
+msgstr "Logical Volume has connected to Data Source"
+
+msgid "ID_DATA_SOURCE_HAS_BEEN_USED"
+msgstr "The data source is already in use"
+
+msgid "ID_LV_IS_CREATING"
+msgstr "Creating a logical volume"

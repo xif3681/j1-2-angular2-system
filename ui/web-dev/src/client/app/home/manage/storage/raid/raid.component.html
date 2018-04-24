@@ -1,0 +1,62 @@
+
+<div class="main-container">
+  <i class="fa fa-refresh refresh" [class.fa-spin]="PendingServerRaidListAllRefresh == 0" aria-hidden="true" (click)="refresh()"></i>
+  <div class="panel">
+  <div class="licence-list-btns">
+    <button type="button" class="my-btn" (click)="addRaid()"
+            [disabled]="PendingServerRaidListAll==0||PendingServerRaidListAllErrorFlag==1||rebuildRaidFlag==1"
+    ><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<span translate>创建RAID</span></button>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <th *ngFor="let item of tHeadRaidListNames">{{item|translate}}</th>
+      </thead>
+      <tbody *ngFor="let item of raidListAll;let i = index;" class="table-striped">
+        <tr *ngIf="raidListAll.length !=0&&PendingServerRaidListAll==1">
+          <td (click)="toggleLicenceDetail(item)" style="width: 30px"><i [ngClass]="item.faCaretType" class="fa" aria-hidden="true"></i></td>
+          <td style="width: 300px;text-align: left">{{item.raid_name}}</td>
+          <td *ngIf="item.raid_level ==  0" >RAID0</td>
+          <td *ngIf="item.raid_level ==  5" >RAID5</td>
+          <td>{{item.raid_size}}</td>
+          <td *ngIf="item.raid_state ==  0" translate>正常</td>
+          <td *ngIf="item.raid_state ==  1">
+            <span  class="progress-span" style="float: left;right: 0;left: 4px;" translate>重建中</span>
+            <span  class="progress-span">{{item.recon_completed}}%</span>
+            <ngb-progressbar type="success" [value]="item.recon_completed"></ngb-progressbar>
+          </td>
+          <td *ngIf="item.raid_state ==  2" class="red" translate>降级</td>
+          <td *ngIf="item.raid_state ==  3" class="red" translate>损坏</td>
+          <td>
+            <span *ngIf="item.raid_state ==  2" class="btn-suc" (click)="rebuildRaid(item)" placement="bottom" ngbTooltip='{{"重建RAID"|translate}}'><i class="fa fa-gavel" aria-hidden="true"></i></span>
+            <span *ngIf="item.raid_state ==  0"  (click)="configRAID(item)" class="btn-suc"  placement="bottom" ngbTooltip='{{"配置RAID"|translate}}'><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            &nbsp;
+            <span *ngIf="item.raid_state ==  0||item.raid_state ==  3||item.raid_state ==  2" class="btn-del" (click)="delRAID(item,i)" placement="bottom" ngbTooltip='{{"删除RAID"|translate}}'><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+          </td>
+        </tr>
+        <tr [ngClass]="item.licenceDetail" class="licence-detail"  *ngIf="raidListAll.length !=0&&PendingServerRaidListAll==1" >
+          <td></td>
+          <td colspan="6">
+                <p>
+                  <label translate>磁盘：</label>
+                  <span>{{item.physdrvs}}<span translate>槽位</span></span>
+                </p>
+                <p>
+                  <label translate>条带大小：</label>
+                  <span>{{item.strpsz}}</span>
+                </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--初始化的时候-->
+    <div>
+      <p class="load">
+        {{PendingServerRaidListAllError|translate}}
+        <i class="fa fa-spinner fa-pulse" aria-hidden="true" *ngIf="PendingServerRaidListAll == 0"></i>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+

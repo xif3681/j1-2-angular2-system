@@ -1,0 +1,126 @@
+div {
+  height: 4px;
+  background-color: #d90000;
+}
+nav {
+  border-color: #dbdbdb;
+  border-style: solid;
+  border-width: 0 0 1px;
+  /*display: block;*/
+  height: 61px;
+  padding: 0 16px;
+  background-color: #ececec;
+  color: #333333;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+nav .icon {
+  height: 61px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+nav a {
+  /*color: #8f8f8f;*/
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-right: 60px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  /*display: block;*/
+}
+nav a.about-menu {
+  margin-right: 0px;
+}
+nav a.about {
+  width:100px;
+  position: absolute;
+  right: 0px;
+  margin-right: 0px;
+  top: 30px;
+}
+nav a.user {
+  position: absolute;
+  right: 0px;
+  margin-right: 0px;
+  top: 30px;
+}
+nav a.lang {
+  position: absolute;
+  right: 0px;
+  margin-right: 100px;
+  top: 30px;
+}
+nav a.router-link-active {
+  color: #d90000 !important;
+  font-weight: bold;
+}
+/*最右侧关于按钮*/
+.about {
+  position: absolute;
+  right: 0;
+
+}
+.about-menu {
+  font-size: 14px;
+  top:27px;
+  right: 0;
+  left: auto;
+  margin: 0;
+  padding: 0;
+  min-width: 100px;
+}
+
+.about-menu span{
+  color: #7b8a8b;
+  cursor: pointer;
+}
+.about-menu span:hover{
+  color: #ffffff;
+  background-color: rgba(128, 128, 128, 0.8);
+}
+.about-menu span:nth-last-child(1){
+  border-bottom: none;
+}
+/*.dropdown-menu{*/
+  /*position: absolute;*/
+  /*top:10px;*/
+  /*left: 0;*/
+  /*z-index: 1000;*/
+  /*display: none;*/
+  /*float: left;*/
+  /*min-width: 160px;*/
+/*!* padding: 5px 0; *!*/
+/*!* margin: 2px 0 0; *!*/
+  /*font-size: 1rem;*/
+  /*color: #373a3c;*/
+  /*text-align: left;*/
+  /*list-style: none;*/
+  /*background-color: #fff;*/
+  /*-webkit-background-clip: padding-box;*/
+  /*background-clip: padding-box;*/
+  /*border: 1px solid rgba(0, 0, 0, .15);*/
+  /*border-radius: .25rem;*/
+/*}*/
+/*nav a.manage {*/
+  /*background: url("../../../res/img/toolbar/manage.png") no-repeat;*/
+/*}*/
+/*nav a.manage.router-link-active {*/
+  /*background: url("../../../res/img/toolbar/manage_on.png") no-repeat;*/
+/*}*/
+/*nav a.config {*/
+  /*background: url("../../../res/img/toolbar/config.png") no-repeat;*/
+/*}*/
+/*nav a.config.router-link-active {*/
+  /*background: url("../../../res/img/toolbar/config_on.png") no-repeat;*/
+/*}*/

@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2016-12-09 11:37+CST\n"
+"Last-Translator:Li Guangyou <li.guangyou@eisoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+msgid "ID_DOCKER_SERVICE_CAN_NOT_LINK"
+msgstr "無法連接Docker服務"
+
+msgid "ID_SERVER_ERROR"
+msgstr "伺服器錯誤"
+
+msgid "ID_CONTAINER_IN_DEAD"
+msgstr "容器異常"
+
+msgid "ID_CONTAINER_DOES_NOT_EXIST"
+msgstr "容器不存在"
+
+msgid "ID_LINK_ERROR"
+msgstr "連接錯誤"
+
+msgid "ID_OPERATE_SERVICE_EXIST_FAULT"
+msgstr "服務操作出現錯誤"
+
+msgid "ID_SERVICE_STATUS_IN_FATAL"
+msgstr "服務處於錯誤狀態"
+
+msgid "ID_MEGACLI_NOT_FOUND"
+msgstr "MegaCLI管理工具找不到"
+
+msgid "ID_SLOT_NUMBER_INVALID"
+msgstr "無效的槽位號"
+
+msgid "ID_INVALID_COMMAND"
+msgstr "無效的MegaCLI命令"
+
+msgid "ID_MAXIMUM_LDS_ALREADY_CONFIGURED"
+msgstr "最大數量的RAID已配置"
+
+msgid "ID_RAID_NAME_HAS_BEEN_USED"
+msgstr "RAID名稱已被使用"
+
+msgid "ID_RAID_LEVEL_OR_DISK_NUMBER_OR_STRIPSZ_ERROR"
+msgstr "RAID級別，磁片槽位元號，條帶大小至少有一個設置錯誤"
+
+msgid "ID_RAID_NOT_FOUND"
+msgstr "RAID找不到"
+
+msgid "ID_RECONSTRUCTION_IN_PROGRESS"
+msgstr "RAID正在重建中"
+
+msgid "ID_RAID_HAS_LV"
+msgstr "RAID上存在邏輯卷"
+
+msgid "ID_RAID_CAN_NOT_RECONSTRUCT"
+msgstr "RAID不能夠用來重建"
+
+msgid "ID_EXISTS_RAID_RECON"
+msgstr "存在RAID在重建"
+
+msgid "ID_LV_NAME_HAS_BEEN_USED"
+msgstr "邏輯卷名稱已被使用"
+
+msgid "ID_LV_NOT_FOUND"
+msgstr "邏輯卷找不到"
+
+msgid "ID_INVALID_LV_CAPACITY"
+msgstr "無效的邏輯卷容量"
+
+msgid "ID_LV_HAS_LINK_DATA_SOURCE"
+msgstr "邏輯卷已連接資料來源"
+
+msgid "ID_DATA_SOURCE_HAS_BEEN_USED"
+msgstr "資料來源已被使用"
+
+msgid "ID_LV_IS_CREATING"
+msgstr "邏輯卷正在創建中"

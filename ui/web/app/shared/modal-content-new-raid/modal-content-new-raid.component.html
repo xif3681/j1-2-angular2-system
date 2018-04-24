@@ -1,0 +1,99 @@
+<div class="modal-pending" *ngIf="promptContentSubmit == 1">
+  <div class="modal-pending-spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div>
+</div>
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="modal-title">{{title|translate}}</p>
+</div>
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  <div class="modal-body">
+    <div class="panel-body">
+      <!--RAID名称-->
+      <div class="outer">
+        <label for="RAIDName" class="col-name" translate>RAID名称</label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" #RAIDName id="RAIDName" placeholder='{{"请输入RAID名称"|translate}}'
+                 required
+                 [(ngModel)]="createRaidModel.raid_name" name="raid_name"
+                 #raid_name="ngModel"
+                 pattern="^[A-Za-z]{1}[A-Za-z0-9]{2,14}$"
+          />
+        </div>
+
+      </div>
+      <div>
+        <div *ngIf="raid_name.touched&&raid_name.errors&&raid_name.errors.required"
+             [class.bubble]="raid_name.errors&&raid_name.errors.required" style="top: 10px">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入RAID名称</div>
+        </div>
+        <div *ngIf="raid_name.errors&&raid_name.errors.pattern"
+             [class.bubble]="raid_name.errors&&raid_name.errors.pattern" style="top: 10px">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>RAID名称只能包含字母和数字且以以字母开头，长度范围3～15个字符，请重新输入</div>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="RAIDRank" class="col-name" translate>RAID级别</label>
+        <div class="col-text">
+          <select id="RAIDRank" class="col-input-text"
+                  required
+                  [(ngModel)]="createRaidModel.raid_level" name="raid_level"
+                  #raid_level="ngModel" (change)="handleSelectPrompt(raid_level.model)">
+            <option *ngFor="let item of RAIDRankList" [value]='item.raid_level'>{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="stripeSize" class="col-name" translate>条带大小</label>
+        <div class="col-text">
+          <select id="stripeSize" class="col-input-text"
+                  required
+                  [(ngModel)]="createRaidModel.strip_size" name="strip_size"
+                  #strip_size="ngModel" >
+            <option *ngFor="let item of stripeSizeList" [value]='item'>{{item}}KB</option>
+          </select>
+        </div>
+      </div>
+      <div class="outer">
+        <label class="col-name" style="width: 100%">
+          <span style="float: left" translate>选择磁盘</span>
+          <span class="color_red">&nbsp;&nbsp;&nbsp;&nbsp;{{promptRaidContent|translate}}</span>
+        </label>
+      </div>
+      <div style="max-height: 190px;overflow-y: auto;">
+        <table class="table table-striped">
+          <thead>
+          <th><input type="checkbox" #cvall [checked]="false" [disabled]="diskRaidInfoList.length==0"
+                     (change)="$event.target.checked? addDiskAll(true) : addDiskAll(false)"
+          ></th>
+          <th *ngFor="let item of tNewRaid" style="font-weight: normal">{{item|translate}}</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of diskRaidInfoList;let i = index;">
+            <td>
+              <input type="checkbox" [checked]="cvall.checked"
+                     (change)="$event.target.checked? addDiskItem(item.slot_number) : delDiskItem(item.slot_number)">
+            </td>
+            <td>{{item.slot_number}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.capacity}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pedding_tbody">
+        {{promptContent|translate}}
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" [disabled]="!heroForm.form.valid||createRaidModel.slot_numbers1.length==0||promptRaidContent!=''" translate>确定</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close(false)" translate>取消</button>
+  </div>
+</form>

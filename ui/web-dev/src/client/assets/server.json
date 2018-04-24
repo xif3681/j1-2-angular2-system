@@ -1,0 +1,68 @@
+[
+  {
+    "status": 0,
+    "services": [
+      "logstash",
+      "etl_server"
+    ],
+    "container": "anyrobot-etl",
+    "id": "8198e5a20027ed6aa7832118ff53c259315045c556d66e11fc1b414ef6fb9047",
+    "name": "anyrobot-etl",
+    "cpu":"12%",
+    "ram":"20%"
+  },
+  {
+    "status": 1,
+    "services": [
+      "manage_server",
+      "mysql"
+    ],
+    "container": "anyrobot-etl",
+    "id": "535772bb48608c48cae577e2bc243d7a9850cf7f0f6f3a74c8cd5ae4f4c6573e",
+    "name": "anyrobot-manager",
+    "cpu":"12%",
+    "ram":"20%"
+  },
+  {
+    "status": 2,
+    "services": [],
+    "container": "anyrobot-etl",
+    "id": "7b226ae9833e1607958ae4acf2b283077cb85ded0f0765556b0c007449eed91f",
+    "name": "anyrobot-proxy",
+    "cpu":"12%",
+    "ram":"20%"
+  },
+  {
+    "status": 3,
+    "services": [],
+    "container": "anyrobot-etl",
+    "id": "87a9752988a252448627158937a5f626e67d12a0cf6f6c5424294233c91def7b",
+    "name": "anyrobot-web",
+    "cpu":"12%",
+    "ram":"20%"
+  },
+  {
+    "status": 4,
+    "services": [
+      "configown",
+      "elasticsearch"
+    ],
+    "container": "anyrobot-etl",
+    "id": "d9b0fe41fee1bf18a7b877022d7eb702c78ae3366d74de3f3fa5093cc202fc66",
+    "name": "anyrobot-store",
+    "cpu":"12%",
+    "ram":"20%"
+  },
+  {
+    "status": 5,
+    "services": [
+      "configown",
+      "elasticsearch"
+    ],
+    "container": "anyrobot-etl",
+    "id": "d9b0fe41fee1bf18a7b877022d7eb702c78ae3366d74de3f3fa5093cc202fc66",
+    "name": "anyrobot-store",
+    "cpu":"12%",
+    "ram":"20%"
+  }
+]

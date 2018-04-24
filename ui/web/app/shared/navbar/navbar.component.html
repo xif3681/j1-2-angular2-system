@@ -1,0 +1,34 @@
+<div></div>
+<nav>
+  <a class="icon"><img style="width: 160px" src="../../../res/img/anyrobot.svg" alt="anyRobot"></a>
+  <a [routerLink]="['manage']" [routerLinkActive]="['router-link-active']" [class.router-link-active]="'manage' === select"  [routerLinkActiveOptions]="{exact:false}" translate>系统管理</a>
+  <a [routerLink]="['config']" [routerLinkActive]="['router-link-active']" [class.router-link-active]="'config' === select"  [routerLinkActiveOptions]="{exact:false}" translate>系统配置</a>
+  <a  class="lang">
+    <a ngbDropdown>
+      <a id="dropdownMenu1" ngbDropdownToggle style="font-size: 18px"><i class="fa fa-globe"></i><span title="admin" style="font-size: 14px"> {{curLang|translate}}</span></a>
+      <a class="dropdown-menu about-menu" aria-labelledby="dropdownMenu1">
+        <span class="dropdown-item"  (click)="setCurrentLang('ch')">简体中文</span>
+        <span class="dropdown-item"  (click)="setCurrentLang('tw')">繁體中文</span>
+        <span class="dropdown-item"  (click)="setCurrentLang('en')">English</span>
+      </a>
+    </a>
+  </a>
+  <a  class="user">
+    <a ngbDropdown>
+      <a id="dropdownMenu2" ngbDropdownToggle style="font-size: 18px"><i class="fa fa-user"></i><span title="admin" style="font-size: 15px"> {{loginName}}</span></a>
+      <a class="dropdown-menu about-menu" aria-labelledby="dropdownMenu1">
+        <span class="dropdown-item"  (click)="editPassWorld()" translate>修改密码</span>
+        <span class="dropdown-item"  [routerLink]="['/login']" translate>注销</span>
+      </a>
+    </a>
+  </a>
+  <a  class="about">
+      <a ngbDropdown>
+        <a id="dropdownMenu3" ngbDropdownToggle style="font-size: 18px"><i class="fa fa-question-circle"></i></a>
+        <a class="dropdown-menu about-menu" aria-labelledby="dropdownMenu2">
+          <!--<span class="dropdown-item" >使用手册</span>-->
+          <span class="dropdown-item" (click)="setAbout()" translate>关于</span>
+        </a>
+      </a>
+  </a>
+</nav>

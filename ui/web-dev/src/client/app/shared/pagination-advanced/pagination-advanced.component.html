@@ -1,0 +1,22 @@
+<div *ngIf="toLicenseCountMe == 0" style="text-align: center;" translate>暂无数据</div>
+<div *ngIf="toLicenseCountMe">
+  <div class="page-total">
+    <span translate>每页</span>
+    <select [ngModel]="curPageNum" (ngModelChange)="setCurPageNum($event)">
+      <option *ngFor="let item of pageNumList" [value]='item'>{{item}}</option>
+    </select>
+    <span translate>/共</span><strong>{{toLicenseCountMe}}</strong><span translate>条</span>
+    <span translate>跳转至</span>
+    <input type="text"
+           value="1"
+           [(ngModel)]="curPage"
+           name="arCurPage"
+           #arCurPage="ngModel"
+           (keyup)="jumpPageKeyUp($event,curPage)"
+    />
+    <span translate>页</span>
+  </div>
+  <ngb-pagination [collectionSize]="toLicenseCountMe" [(page)]="page"  [pageSize]="curPageNum" (pageChange)="pageChanged($event)"[maxSize]="5" [rotate]="true" [boundaryLinks]="false"></ngb-pagination>
+
+
+</div>

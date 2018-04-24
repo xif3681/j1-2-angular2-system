@@ -1,0 +1,8 @@
+<div class="prompt">
+  <p class="alert-danger" *ngFor="let item of prompt;let i = index;">
+    <ngb-alert (close)="closePrompt(i)">
+      {{item|translate}}
+    </ngb-alert>
+  </p>
+</div>
+

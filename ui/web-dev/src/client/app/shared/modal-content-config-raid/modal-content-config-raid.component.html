@@ -1,0 +1,69 @@
+<div class="modal-pending" *ngIf="promptContentSubmit == 1">
+  <div class="modal-pending-spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div>
+</div>
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="modal-title">{{title|translate}}</p>
+</div>
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  <div class="modal-body">
+    <div class="panel-body">
+      <div class="outer">
+        <label for="RAIDName" class="col-name" translate>RAID名称</label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" id="RAIDName" disabled  [value]="body.raid_name"/>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="RAIDRank" class="col-name" translate>RAID级别</label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" id="RAIDRank" disabled  [value]="body.raid_level"/>
+        </div>
+      </div>
+      <div class="outer">
+        <label class="col-name" translate>条带大小</label>
+        <div class="col-text">
+          <input type="text" class="col-input-text"  disabled  [value]="body.strpsz"/>
+
+        </div>
+      </div>
+      <div class="outer">
+        <label class="col-name" style="width: 100%" translate>选择磁盘扩容</label>
+      </div>
+      <div style="max-height: 190px;overflow-y: auto;">
+        <table class="table table-striped">
+          <thead>
+          <th><input type="checkbox" #cvall [checked]="false" [disabled]="diskRaidInfoList.length==0"
+                     (change)="$event.target.checked? addDiskAll(true) : addDiskAll(false)"
+          ></th>
+          <th *ngFor="let item of tNewRaid" style="font-weight: normal">{{item|translate}}</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of diskRaidInfoList;let i = index;">
+
+            <td>
+              <input type="checkbox" [checked]="cvall.checked"
+                     (change)="$event.target.checked? addDiskItem(item.slot_number) : delDiskItem(item.slot_number)">
+            </td>
+            <td>{{item.slot_number}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.capacity}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="pedding_tbody">
+          {{promptContent|translate}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" [disabled]="slot_numbers1.length==0" (click)="addModalRaid(body.vir_drv_id)" translate>确定</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close(false)" translate>取消</button>
+  </div>
+</form>

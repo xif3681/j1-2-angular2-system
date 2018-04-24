@@ -1,0 +1,14 @@
+.page-total input {
+  width: 30px;
+  height: 20px;
+  padding: 0;
+  padding-left: 3px;
+}
+.page-total {
+  float: right;
+  margin: 25px 20px;
+}
+ngb-pagination {
+  /*float: left;*/
+  float: right;
+}

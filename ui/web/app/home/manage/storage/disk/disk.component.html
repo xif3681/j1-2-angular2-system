@@ -1,0 +1,80 @@
+
+<div class="handle" *ngIf="PendingDiskStatus == 0">
+  <div translate>加载中</div>
+  <div><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i></div>
+</div>
+
+<div class="main-container">
+  <i class="fa fa-refresh refresh" [class.fa-spin]="PendingServerPanelAllInfoRefresh==0||PendingDiskAllInfoRefresh==0" aria-hidden="true" (click)="refresh()"></i>
+  <!--服务器面板信息-->
+  <div class="panel">
+    <div class="panel-heading">
+      <a translate>服务器面板</a>
+    </div>
+    <div class="panel panel-server" id="mainBox" *ngIf="PendingServerPanelAllInfo==1&&serverPanel.length!=0">
+      <button type="button" class="disk-box panel-server-btn" *ngFor="let item of serverPanel"
+              [class.graybg]="item.state === 'gray'" [class.selected]="item.slot_number === selectNum&&item.state !== 'gray'"
+              (click)="getItemNum(item)">{{item.slot_number}}<span class="disk-status" [ngClass]="item.state"></span></button>
+    </div>
+    <!--初始化的时候,正在获取服务器面板信息-->
+    <div>
+      <p class="load">
+        {{PendingServerError|translate}}
+        <i class="fa fa-spinner fa-pulse" aria-hidden="true" *ngIf="PendingServerPanelAllInfo == 0"></i>
+      </p>
+    </div>
+  </div>
+  <!--磁盘列表信息-->
+  <div class="panel">
+    <div class="panel-body">
+      <table class="table table-striped"  >
+        <thead>
+        <th *ngFor="let item of tHeadLicenceListNames">{{item|translate}}</th>
+        </thead>
+        <tbody *ngIf="diskListAll.length !=0&&PendingDiskAllInfo==1">
+        <tr  *ngFor="let item of diskListAll;let i = index;"  [ngClass]="{'select-num':item.slot_number ==  selectNum}">
+          <td >{{item.slot_number}}</td>
+          <td >{{item.wwn}}</td>
+          <td>{{item.raid}}</td>
+          <td>{{item.capacity}}</td>
+          <td>{{item.type}}</td>
+          <td *ngIf="item.temperature !==  null">{{item.temperature}}℃</td>
+          <td *ngIf="item.temperature ==  null">---</td>
+          <td *ngIf="item.state ==  6||item.state ==  1" class="redfont" translate>错误</td>
+          <td *ngIf="item.state ==  4" class="redfont" translate>掉线</td>
+          <td *ngIf="item.state ==  0" translate>空闲</td>
+          <td *ngIf="item.state ==  3" class="greenfont" translate>使用中</td>
+          <td *ngIf="item.state ==  5">
+            <span  class="progress-span" style="float: left;right: 0;left: 4px;" translate>重建中</span>
+            <span  class="progress-span">{{item.rebuild}}%</span>
+            <ngb-progressbar type="success" [value]="item.rebuild"></ngb-progressbar>
+          </td>
+          <td *ngIf="item.state ==  7">
+            <span  class="progress-span" style="float: left;right: 0;left: 4px;" translate>初始化中</span>
+
+            <span  class="progress-span">{{item.init}}%</span>
+            <ngb-progressbar type="success" [value]="item.init"></ngb-progressbar>
+          </td>
+          <td *ngIf="item.state ==  2" translate>热备盘</td>
+          <td>
+            <span *ngIf="item.state ==  0" class="btn-suc" (click)="initDisk(item)" placement="bottom" ngbTooltip='{{"初始化"|translate}}'><i class="fa fa-circle-o-notch" aria-hidden="true"></i></span>
+            &nbsp;
+            <span *ngIf="item.state ==  0" class="btn-del" (click)="setDisk(item)" placement="bottom" ngbTooltip='{{"设置全局热备盘"|translate}}'><i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            &nbsp;
+            <span *ngIf="item.state ==  2" class="btn-del" (click)="cancelDisk(item)" placement="bottom" ngbTooltip='{{"取消全局热备盘"|translate}}'><i class="fa fa-pause-circle-o" aria-hidden="true"></i></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <p class="load">
+          {{diskContent|translate}}
+          <i class="fa fa-spinner fa-pulse" aria-hidden="true" *ngIf="PendingDiskAllInfo == 0"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

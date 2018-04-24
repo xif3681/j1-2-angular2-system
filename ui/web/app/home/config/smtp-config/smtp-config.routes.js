@@ -1,0 +1,10 @@
+"use strict";
+var index_1 = require('./index');
+exports.SMTPRoutes = [
+    {
+        path: '',
+        component: index_1.SMTPConfigComponent
+    }
+];
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9ob21lL2NvbmZpZy9zbXRwLWNvbmZpZy9zbXRwLWNvbmZpZy5yb3V0ZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBLHNCQUFvQyxTQUFTLENBQUMsQ0FBQTtBQUVqQyxrQkFBVSxHQUFZO0lBQ2pDO1FBQ0UsSUFBSSxFQUFFLEVBQUU7UUFDUixTQUFTLEVBQUUsMkJBQW1CO0tBQy9CO0NBQ0YsQ0FBQyIsImZpbGUiOiJhcHAvaG9tZS9jb25maWcvc210cC1jb25maWcvc210cC1jb25maWcucm91dGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUm91dGUgfSBmcm9tICdAYW5ndWxhci9yb3V0ZXInO1xuaW1wb3J0IHsgU01UUENvbmZpZ0NvbXBvbmVudCB9IGZyb20gJy4vaW5kZXgnO1xuXG5leHBvcnQgY29uc3QgU01UUFJvdXRlczogUm91dGVbXSA9IFtcbiAge1xuICAgIHBhdGg6ICcnLFxuICAgIGNvbXBvbmVudDogU01UUENvbmZpZ0NvbXBvbmVudFxuICB9XG5dOyJdfQ==

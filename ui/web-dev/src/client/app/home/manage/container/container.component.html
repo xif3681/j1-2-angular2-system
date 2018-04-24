@@ -1,0 +1,21 @@
+
+<!--主界面-->
+<div class="main-container" >
+  <div>
+    <!--加载容器信息-->
+    <!--<p class="load" *ngIf="!containerNames.length">-->
+      <!--正在获取容器信息-->
+      <!--<i class="fa fa-spinner fa-pulse" aria-hidden="true"></i>-->
+    <!--</p>-->
+    <!--<my-panel [Names]="containerNames" [Title]="containerOrServer.container" [tHeadNames]="tHeadContainerNames" *ngIf="containerNames.length"></my-panel>-->
+    <my-panel [Names]="containerNames" [Title]="containerOrServer.container" [tHeadNames]="tHeadContainerNames" ></my-panel>
+    <!--加载服务信息-->
+    <!--<p class="load" *ngIf="!serverNames.length">-->
+      <!--正在获取服务信息-->
+      <!--<i class="fa fa-spinner fa-pulse" aria-hidden="true"></i>-->
+    <!--</p>-->
+    <!--<my-panel [Names]="serverNames" [Title]="containerOrServer.server" [tHeadNames]="tHeadServerNames" *ngIf="serverNames.length"></my-panel>-->
+    <my-panel [Names]="serverNames" [Title]="containerOrServer.server" [tHeadNames]="tHeadServerNames" ></my-panel>
+  </div>
+
+</div>

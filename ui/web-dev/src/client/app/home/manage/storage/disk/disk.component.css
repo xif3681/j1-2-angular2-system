@@ -1,0 +1,199 @@
+.main-container {
+  display: block;
+  padding: 0 50px 0 30px;
+  margin: 30px auto;
+  margin-left: 200px;
+}
+.panel-heading {
+  padding: .75rem 1.25rem;
+  background-color: #a6adb2;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.panel-heading a {
+  font-size: 14px;
+  font-weight: bold;
+  color:#f5f5f5;
+}
+.panel {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 20px;
+}
+.panel tr,.panel th{
+  text-align: center;
+  font-size: 13px;
+
+}
+.panel th{
+  font-size: 14px;
+}
+.show {
+  /*display: '';*/
+}
+.hide {
+  display: none;
+}
+.panel-server {
+  width: 60%;
+  margin: 0 20%;
+  background-color: #ecf0f1;
+  -webkit-column-count: 4;
+}
+
+.panel tr.licence-detail {
+  padding-left: 32px;
+  padding-top: 0;
+  text-align: left;
+}
+
+
+
+.table tbody + tbody {
+  border-top: 1px solid #eceeef;
+}
+table thead th {
+  border-bottom: none;
+}
+
+.btn-suc {
+  color: #5cb85c;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn-del {
+  color: #e74c3c;
+  font-size: 20px;
+  cursor: pointer;
+}
+.panel tr.licence-detail td {
+  border: none;
+  padding-top: 0;
+}
+.disableAct {
+  color: rgba(92, 184, 92, 0.5);
+}
+.panel-body table thead {
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  /*font-size: 14px;*/
+}
+
+/*.table-striped tbody tr:nth-of-type(odd) {*/
+/*background-color: #fff;*/
+/*}*/
+tbody.table-striped:nth-of-type(even) tr {
+  background-color: #f9f9f9;
+}
+.licence-list-btns {
+  padding-bottom: 15px;
+}
+
+.licence-list-btns .my-btn {
+  border-radius: 5px;
+  background-color: #6a767e;
+  height: 30px;
+  line-height: 7px;
+  font-size: 14px;
+}
+button:focus {
+  outline: none;
+}
+
+
+.alert-warning {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebcccc;
+}
+
+.disk-box {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+}
+.disk-status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  float: right;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+/*不同状态的背景色*/
+.green{
+  background-color: green;
+}
+.gray{
+  background-color: #F4F7F8;
+}
+.red{
+  background-color: red;
+}
+
+/*不同状态显示的字体*/
+.greenfont{
+  color: green;
+}
+.graybg{
+  background-color: #F4F7F8;
+}
+.redfont{
+  color: red;
+}
+
+
+
+
+.selected:active {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.selected {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+button {
+  background-color: #fff;
+  color:#555;
+}
+/*点击服务器面板，表格对应的高亮显示*/
+.table-striped tbody tr.select-num:nth-of-type(even),.table-striped tbody tr.select-num:nth-of-type(odd) {
+  background-color: rgba(166,173,178,0.4);
+}
+/*表格每行区分颜色显示*/
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #f9f9f9;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+
+.handle {
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(85, 89, 92, 0.5);
+  z-index: 1;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000
+}
+.panel-server-btn {
+  padding: 4px 10px;
+}

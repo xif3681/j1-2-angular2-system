@@ -1,0 +1,29 @@
+:host {
+  background-color: #ececec;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  /*width: 230px;*/
+  float: left;
+}
+
+aside a {
+  padding: 0 16px;
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: 0 0 1px;
+  width: 190px;
+  color: #333333;
+  font-size: 14px;
+  line-height: 40px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  display: block
+}
+
+aside a.router-link-active {
+  /*color: #f60 !important;*/
+  font-weight: bold;
+  background-color: #fff;
+}

@@ -1,0 +1,60 @@
+<div class="main-container">
+  <div class="panel">
+    <div class="licence-list-btns">
+      <button type="button" class="my-btn" (click)="addUser()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<span
+        translate>创建用户</span></button>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+        <th *ngFor="let item of tHeadLicenceListNames">{{item|translate}}</th>
+        </thead>
+        <tbody *ngFor="let item of userListAll;let i = index;" class="table-striped">
+        <tr>
+          <td class="textOverflow" [title]="item.loginName">{{item.loginName}}</td>
+          <td class="textOverflow" [title]="item.displayName">{{item.displayName}}</td>
+          <td class="textOverflow" [title]="item.email">{{item.email}}</td>
+          <td *ngIf="item.loginName == 'admin'"></td>
+          <td *ngIf="item.loginName !== 'admin'">
+            <button
+              style="position: relative"
+              (click)="stateChange(item)"
+              class="btn ng-scope stateBtn stateBtnON"
+              [class.btn-success]="item.status"
+            >
+              <span class="ng-scope" translate="">ON</span>
+            </button>
+            <button
+              style="position: relative"
+              (click)="stateChange(item)"
+              class="btn ng-scope stateBtn stateBtnOff"
+              [class.btn-danger]="!item.status"
+            >
+              <span class="ng-scope" translate="">OFF</span>
+            </button>
+          </td>
+          <td class="textOverflow" [title]="item.description">{{item.description}}</td>
+          <!--<td *ngIf="item.loginName !== 'admin'" >-->
+          <td>
+            <span [hidden]="item.loginName == 'admin'" class="btn-suc" (click)="editUser(item)" placement="bottom"
+                  ngbTooltip='{{"修改用户"|translate}}'><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            &nbsp;
+            <span [hidden]="item.loginName == 'admin'" class="btn-del" (click)="delUser(item)" placement="bottom"
+                  ngbTooltip='{{"删除用户"|translate}}'><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+      <div *ngIf="userListAll.length == 0" style="text-align: center;">
+        <span translate>暂无用户信息</span>
+      </div>
+      <!--分页-->
+      <ar-pagination-advanced (changCurPageNum)="onCurPageNum($event)" (changCurPage)="onCurPage($event)"
+                              (changPage)="onPage($event)" [toLicenseCountMe]="userCountMe"></ar-pagination-advanced>
+
+    </div>
+
+  </div>
+</div>
+

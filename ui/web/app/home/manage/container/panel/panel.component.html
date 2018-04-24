@@ -1,0 +1,36 @@
+<div class="panel">
+  <div class="panel-heading">
+    <a>{{Title.name|translate}}</a>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th *ngFor="let item of tHeadNames">{{item|translate}}</th>
+      </tr>
+      </thead>
+
+      <tbody  class="table-striped"  *ngIf="Names.length">
+        <tr *ngFor="let item of Names;let i = index;">
+          <td>{{i+1}}</td>
+          <td>{{item.name}}</td>
+          <td *ngIf="item.container">{{item.container}}</td>
+          <my-status [status]="item.status"></my-status>
+          <td>{{item.cpu_percent}}%</td>
+
+          <td>{{item.mem_percent}}%</td>
+          <td>
+            <my-button-group [btnItem]="item" [alertDif]="Title.enName"  (changed)="onBtnItemChange(item, $event)"></my-button-group>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <div>
+    <p class="load" *ngIf="!Names.length">
+      <span translate>正在获取容器及服务信息</span>
+      <i class="fa fa-spinner fa-pulse" aria-hidden="true"></i>
+    </p>
+  </div>
+</div>

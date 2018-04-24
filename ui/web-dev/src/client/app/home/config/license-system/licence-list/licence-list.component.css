@@ -1,0 +1,97 @@
+
+.panel {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-bottom: 70px;
+}
+.panel tr,.panel th{
+  text-align: center;
+  font-size: 13px;
+}
+.panel th{
+  font-size: 14px;
+}
+.show {
+  /*display: '';*/
+}
+.hide {
+  display: none;
+}
+
+thead th:nth-child(1) {
+  width: 30px;
+}
+thead th:nth-child(2) {
+  text-align: left;
+}
+.panel tr.licence-detail {
+  padding-left: 32px;
+  padding-top: 0;
+  text-align: left;
+}
+
+
+
+.table tbody + tbody {
+  border-top: 1px solid #eceeef;
+}
+table thead th {
+ border-bottom: none;
+}
+
+.btn-suc {
+  color: #5cb85c;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn-del {
+  color: #e74c3c;
+  font-size: 20px;
+  cursor: pointer;
+}
+.panel tr.licence-detail td {
+  border: none;
+  padding-top: 0;
+}
+.disableAct {
+  color: rgba(92, 184, 92, 0.5);
+}
+.panel-body table thead {
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  /*font-size: 14px;*/
+}
+
+/*.table-striped tbody tr:nth-of-type(odd) {*/
+  /*background-color: #fff;*/
+/*}*/
+tbody.table-striped:nth-of-type(even) tr {
+  background-color: #f9f9f9;
+}
+.licence-list-btns {
+  padding-bottom: 15px;
+}
+
+.licence-list-btns .my-btn {
+  border-radius: 5px;
+  background-color: #6a767e;
+  height: 30px;
+  line-height: 7px;
+  font-size: 14px;
+}
+button:focus {
+  outline: none;
+}
+
+
+.alert-warning {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebcccc;
+}

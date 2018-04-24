@@ -1,0 +1,88 @@
+<div class="modal-pending" *ngIf="promptContentSubmit == 1">
+  <div class="modal-pending-spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div>
+</div>
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="modal-title">{{title|translate}}</p>
+</div>
+<form (ngSubmit)="onRollSubmit()" #rollForm="ngForm">
+  <div class="modal-body">
+    <div class="panel-body">
+      <div class="outer">
+        <label for="RollName" class="col-name" translate>卷名称</label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" #RollName id="RollName" placeholder='{{"请输入卷名称"|translate}}'
+                 required disabled
+                 [(ngModel)]="congigRollModel.lv_name_config" name="lv_name_config"
+                 #lv_name_config="ngModel"
+                 pattern="^[A-Za-z]{1}[A-Za-z0-9]{2,14}$"
+          />
+        </div>
+      </div>
+      <div class="outer">
+        <label for="RollType" class="col-name" translate>卷类型</label>
+        <div class="col-text">
+          <select id="RollType" class="col-input-text"
+                  required
+                  [(ngModel)]="congigRollModel.lv_type" name="lv_type"
+                  #lv_type="ngModel" >
+            <option *ngFor="let item of rollType" [value]='item.enName'>{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="outer">
+        <label class="col-name" translate>卷容量</label>
+        <div class="col-text">
+          <input class="col-input-text" #RollCapacity  placeholder='{{"请输入卷容量"|translate}}'
+                 required
+                 [(ngModel)]="congigRollModel.lv_capacity_num" name="lv_capacity_num"
+                 #lv_capacity_num="ngModel"
+                 [title]="bigSize"
+                 pattern="^[0-9]\d*(\.\d+)?$"
+          />
+        </div>
+        <select class="roll-capacity" required
+                [(ngModel)]="congigRollModel.lv_capacity_unit" name="lv_capacity_unit"
+                #lv_capacity_unit="ngModel">
+          <option *ngFor="let item of rollCapacity" [value]='item'>{{item}}</option>
+        </select>
+      </div>
+      <!--<div *ngIf="lv_capacity_num.touched">-->
+      <div>
+        <div *ngIf="lv_capacity_num.touched&&lv_capacity_num.errors&&lv_capacity_num.errors.required"
+             [class.bubble]="lv_capacity_num.errors&&lv_capacity_num.errors.required" style="top: 90px;left: 390px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入卷容量</div>
+        </div>
+        <div *ngIf="lv_capacity_num.errors&&lv_capacity_num.errors.pattern"
+             [class.bubble]="lv_capacity_num.errors&&lv_capacity_num.errors.pattern" style="top: 90px;left: 390px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>卷容量必须为非负数</div>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="RollNum" class="col-name" translate>数据源</label>
+        <div class="col-text">
+          <select id="RollNum" class="col-input-text"
+                  required
+                  [(ngModel)]="congigRollModel.data_source" name="data_source"
+                  #data_source="ngModel" >
+            <option *ngFor="let item of dataSource" [value]='item'>{{item}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="color_red">
+        <div>{{checkCapacityContent|translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" [disabled]="!rollForm.form.valid" translate>确定</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close(false)" translate>取消</button>
+  </div>
+</form>

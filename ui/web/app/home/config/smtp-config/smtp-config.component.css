@@ -1,0 +1,123 @@
+.main-container {
+  display: block;
+  padding: 30px 50px 0 30px;
+  margin: 0px auto;
+  margin-left: 200px;
+
+}
+.panel {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-bottom: 70px;
+}
+.smtp-text{
+	width: 135px;
+
+}
+.smtp-input input{
+	height: 36px;
+	line-height: 36px;
+	width: 280px;
+	padding: 5px 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+.smtp-title {
+	height: 40px;
+	border-bottom: 1px solid #dbdbdb;
+	padding: 10px;
+	margin-bottom: 15px;
+	margin-right: 20px;
+}
+.smtp-button {
+
+	color: #373a3c;
+	background-color: #fff;
+	border-color: #ccc;
+}
+.smtp-button:hover,.smtp-button:focus,.smtp-button:active {
+	color: #373a3c;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+	outline: 0;
+}
+.smtp-button-test {
+	margin-left: 10px;
+}
+.smtp-button-save {
+	//margin-top: 15px;
+}
+.smtp-info {
+	margin-left: 10px;
+}
+.smtp-div-inline div{
+	display: inline-block;
+}
+.smtp_msg{
+    color: #d90000;
+    margin-left: 10px;
+    position: relative;
+    top: 4px;
+
+}
+.smtp_sus{
+	margin-left: 10px;
+	position: relative;
+	top: 4px;
+}
+.test-res{
+	display: inline-block;
+}
+.span-eyes{
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	line-height: 35px;
+	color: #ccc;
+	text-align: center;
+	position: relative;
+	right: 38px;
+	top: 3px;
+	font-size: 1.5em;
+}
+.fn-hide{
+/*	height: 0 !important;
+	width: 0 !important;
+	border: 0 !important;
+	padding: 0 !important;*/
+	width: 10px;
+	visibility: hidden;
+}
+.smtp-button-div{
+	margin-top: 10px;
+}
+.smtp-start{
+	color: red;
+	font-size: 1.3em;
+}
+.smtp-splice{
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	margin-bottom: 34px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+.smtp-splice-1{
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+.smtp-group {
+	padding-left:20px;
+}
+.smtp_msg_pass{
+	position: relative;
+	right: 34px;
+}

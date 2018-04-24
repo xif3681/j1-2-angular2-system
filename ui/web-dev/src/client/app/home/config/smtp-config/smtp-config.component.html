@@ -1,0 +1,187 @@
+
+<div class="main-container">
+	<div class="panel">
+		<div class="smtp-splice">
+					<div class="smtp-title" translate>SMTP服务器配置</div>
+
+					<div class="smtp-group">
+						<label class="smtp-text" ><span class="smtp-start">* </span><span translate>邮件服务器(SMTP)：</span></label>
+						<label class="smtp-input">
+							<input type="text" id="host" name="host"
+							autocomplete="off"
+							pattern="^[A-Za-z0-9.\-_]+$"
+							[(ngModel)]="smtpParams.host"
+							(ngModelChange)="myFunction(event)"
+							#host="ngModel"
+							(keyup)="onKeyup($event,smtpParams.host)"
+							 > </label>
+						<label class="smtp-div-inline">
+							<div  *ngIf="hasError == true">
+			<!-- 				  <div  *ngIf="host.touched&&host.errors && host.errors.required">
+							    <div class="smtp_msg" translate>请输入SMTP地址</div>
+							  </div>
+							  <div  *ngIf="host.errors && host.errors.pattern">
+							    <div class="smtp_msg" translate>邮件服务器只能包含3-30位字符，支持英文、数字及.-_字符。tgrdrtr</div>
+							  </div> -->
+							  <div >
+							    <div class="smtp_msg"> {{hostError|translate}}</div>
+							  </div>
+							</div>
+						</label>
+					</div>
+
+
+
+					<div class="smtp-group">
+						<label class="smtp-text" ><span class="smtp-start">* </span><span translate>端口：</span></label>
+						<label class="smtp-input">
+							<input type="text" name="port" id="port"
+							autocomplete="off"
+							pattern="^[0-9]*[1-9][0-9]*$"
+							[(ngModel)]="smtpParams.port"
+							(ngModelChange)="myFunction(event)"
+							#port="ngModel"
+							(keyup)="onKeyup($event,smtpParams.port)" >
+						</label>
+						<label class="smtp-div-inline">
+							<div  *ngIf="hasError == true">
+			<!-- 				  <div  *ngIf="port.touched&&port.errors && port.errors.required">
+							    <div class="smtp_msg" translate>请输入端口</div>
+							  </div>
+							  <div  *ngIf="port.errors && port.errors.pattern">
+							    <div class="smtp_msg" translate>端口必须为小于65535的正整数dfdteyry</div>
+							  </div> -->
+							  <div >
+							    <div class="smtp_msg"> {{portError|translate}}</div>
+							  </div>
+							</div>
+						</label>
+					</div>
+					<div class="smtp-group">
+						<label class="smtp-text" ><span class="smtp-start">* </span><span translate>邮件地址：</span></label>
+						<label class="smtp-input">
+							<input type="test" name="user" id="user"
+							autocomplete="off"
+							placeholder= "user@example.com"
+							pattern="^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,128}$"
+							[(ngModel)]="smtpParams.user"
+							(ngModelChange)="myFunction(event)"
+							#user="ngModel"
+							(keyup)="onKeyup($event,smtpParams.user)"
+							 >
+						</label>
+						<label class="smtp-div-inline">
+							<div  *ngIf="hasError == true">
+			<!-- 				  <div  *ngIf="user.touched&&user.errors && user.errors.required">
+							    <div class="smtp_msg" translate>请输入邮件地址</div>
+							  </div>
+							  <div  *ngIf="user.errors && user.errors.pattern">
+							    <div class="smtp_msg" translate>Email地址只能由英文字母、数字及特殊字符@-_组成</div>
+							  </div> -->
+							  <div>
+							    <div class="smtp_msg"> {{userError|translate}}</div>
+							  </div>
+							</div>
+						</label>
+						<input type="test" class="fn-hide" >
+						<input type="password" class="fn-hide">
+					</div>
+					<div class="smtp-group">
+						<label class="smtp-text" ><span class="smtp-start">* </span><span translate>邮件密码：</span></label>
+						<label class="smtp-input" *ngIf="showPass == true ">
+
+							<input type="password" name="password"  id="password"
+							autocomplete="off"
+							[(ngModel)]="smtpParams.password"
+							(ngModelChange)="myFunction(event)"
+							#password="ngModel"
+							(keyup)="onKeyup($event,smtpParams.password)">
+							<span (click)="showPassword()" class="span-eyes"><i class="fa fa-eye-slash " aria-hidden="true"></i></span>
+						</label>
+						<label class="smtp-input" *ngIf="showPass == false">
+							<input type="text" name="password"  id="password"
+							autocomplete="off"
+							[(ngModel)]="smtpParams.password"
+							(ngModelChange)="myFunction(event)"
+							#password="ngModel"
+							(keyup)="onKeyup($event,smtpParams.password)"
+							>
+							<span (click)="showPassword()" class="span-eyes" ><i class="fa fa-eye " aria-hidden="true" ></i></span>
+						</label>
+
+
+						<label class="smtp-div-inline">
+							<div  *ngIf="hasError == true">
+			<!-- 				  <div  *ngIf="password.touched&&password.errors && password.errors.required">
+							    <div class="smtp_msg" translate>请输入邮件密码</div>
+							  </div> -->
+							  <div >
+							    <div class="smtp_msg smtp_msg_pass"> {{passwordError|translate}}</div>
+							  </div>
+							</div>
+						</label>
+					</div>
+
+
+
+					<div class="smtp-button-div smtp-group">
+						<span >&nbsp;&nbsp;</span>
+						<button class="btn smtp-button smtp-button-save" [disabled]="hasError == true|| smtpParams.host ==='' || smtpParams.port === '' || smtpParams.user === '' || smtpParams.password === '' || saveRes === false" (click)="postSMTP()" ><span translate>保存</span></button>
+						<button class="btn smtp-button smtp-button-save" (click)="cancelSave()" ><span translate>取消</span></button>
+						<div class="test-res">
+							<div *ngIf="saveSMTPRes =='saveTimeout'" class="smtp_msg" ><span translate>正在检查服务器，请稍等。</span>{{testSMTPResErr|translate}}</div>
+						</div>
+					</div>
+		</div>
+
+		<div class="smtp-splice-1">
+
+
+				<div class="smtp-title" translate>SMTP服务器测试</div>
+				<div class="smtp-group">
+					<label class="smtp-text" ><span >&nbsp;&nbsp;&nbsp;</span><span translate>测试邮箱：</span></label>
+					<label class="smtp-input">
+						<input type="text" name="recvEmail" id="recvEmail"
+						autocomplete="off"
+						placeholder= "user@example.com"
+						pattern="^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,128}$"
+						[(ngModel)]="smtpTestParams.emails[0]"
+						#recvEmail="ngModel"
+						(keyup)="onKeyup($event,smtpTestParams.emails[0])" >
+					</label>
+
+					<span class="smtp-info" placement="right"  ngbTooltip='{{"测试邮箱仅用于验证邮件是否可以正常发送。您必须先保存SMTP服务器配置，然后才能测试。"|translate}}'><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+					<label class="smtp-div-inline">
+						<div  *ngIf="hasrecvEmailError ==true">
+		<!-- 				  <div  *ngIf="recvEmail.touched&&recvEmail.errors && recvEmail.errors.required">
+						    <div class="smtp_msg" translate>请输入测试邮箱</div>
+						  </div>
+						  <div  *ngIf="recvEmail.errors && recvEmail.errors.pattern">
+						    <div class="smtp_msg" translate>Email地址只能由英文字母、数字及特殊字符@.-_组成</div>
+						  </div> -->
+						  <div >
+						    <div class="smtp_msg"> {{recvEmailError|translate}}</div>
+						  </div>
+						</div>
+					</label>
+
+				</div>
+
+				<div class="smtp-button-div smtp-group">
+					<button class="btn smtp-button smtp-button-test" (click)="postTestSMTP()" [disabled]=" hasrecvEmailError === true|| saveSuc === false || testSuc === false"><span translate>测试</span></button>
+					<div class="test-res" style="padding-left: 53px;">
+						<div *ngIf="testSMTPRes ==true"  class="smtp_sus"><span translate>测试成功！请前往</span>{{smtpTestParams.emails[0]}}<span translate>查收测试邮件</span></div>
+						<div *ngIf="testSMTPRes ==false" class="smtp_msg" ><span translate>测试失败！错误原因：</span>{{testSMTPResErr|translate}}</div>
+						<div *ngIf="testSMTPResul =='testTimeout'" class="smtp_msg" ><span translate>正在发送测试邮件，请稍等。</span></div>
+					</div>
+				</div>
+
+		</div>
+
+
+
+
+	</div>
+
+</div>
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="<%= APP_BASE %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= APP_TITLE %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./res/img/hd-org.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./res/img/hd-or.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+  <!-- inject:css -->
+  <!-- endinject -->
+  <style>
+    .ui-app-loading {
+      width: 80%;
+      margin: 150px auto;
+      padding: 0 15px;
+      text-align: center;
+      font-family: "Microsoft YaHei", arial, "Helvetica Neue",Helvetica, sans-serif;
+      color: #444444;
+      padding-top: 45px;
+      background-size: 128px;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-image: url('./res/img/initial_load.gif');
+    }
+
+    .ui-app-loading small {
+      font-size: 65%;
+      font-weight: 400;
+      color: #b4bcc2;
+    }
+  </style>
+</head>
+<body>
+
+  <sd-app>
+    <div class="ui-app-loading" id="ui-app-loading">
+      <h1>
+        <strong>AnyRobot&nbsp;</strong><small translate>正在加载,请稍等片刻</small>
+      </h1>
+    </div>
+  </sd-app>
+
+  <script>
+  //前端页面跳转过来，定义语言
+  function Request(name)
+  {
+    new RegExp("(^|&)"+name+"=([^&]*)").exec(window.location.search.substr(1));
+    return RegExp.$2
+  }
+  var curlang = Request("curlang");
+  switch (curlang){
+    case'zh-cn' :
+      window.localStorage.lang = 'ch';
+      break;
+    case'zh-tw' :
+      window.localStorage.lang = 'tw';
+      break;
+    case'en-us' :
+      window.localStorage.lang = 'en';
+      break;
+  }
+
+  var  lang = 'ch';
+  if(window.localStorage) {
+    lang = window.localStorage.lang;
+  }
+  var  isLoading = document.getElementsByTagName("small")[0];
+  if (lang == 'tw') {
+    isLoading.innerHTML = "正在載入,請稍等片刻";
+    document.title = '愛數 AnyRobot';
+  } else if (lang == 'en'){
+    isLoading.innerHTML = "is loading. Give me a moment here.";
+    document.title = 'Eisoo AnyRobot';
+  }
+
+
+
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (BUILD_TYPE === 'dev') { %>
+  <script src="<%= APP_BASE %>app/system-config.js"></script>
+  <% } %>
+
+  <!-- libs:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <% if (BUILD_TYPE === 'dev') { %>
+  <script>
+  System.import('<%= BOOTSTRAP_MODULE %>')
+    .catch(function (e) {
+      console.error(e.stack || e,
+        'Not expecting this error? Report it at https://github.com/mgechev/angular2-seed/issues');
+    });
+  </script>
+  <% } %>
+
+</body>
+</html>

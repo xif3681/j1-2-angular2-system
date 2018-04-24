@@ -1,0 +1,54 @@
+<!--登陆表单-->
+<div class="col-md-12 containerme">
+    <div class="top-row"></div>
+    <div class="top-nav">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 logo"></div>
+      <div class="language">
+        <a ngbDropdown>
+          <a id="dropdownMenu1" ngbDropdownToggle style="font-size: 18px">
+            <i class="fa fa-globe"></i>
+            <span title="admin" style="font-size: 14px;"> {{curLang|translate}}</span></a>
+          <a class="dropdown-menu about-menu" aria-labelledby="dropdownMenu1">
+            <span class="dropdown-item" (click)="setCurrentLang('ch')">简体中文</span>
+            <span class="dropdown-item" (click)="setCurrentLang('tw')">繁體中文</span>
+            <span class="dropdown-item" (click)="setCurrentLang('en')">English</span>
+          </a>
+        </a>
+      </div>
+    </div>
+  <div class="col-md-12 main-body">
+    <div class="welcome"><h3 style="font-size: 24px">{{'欢迎登录'|translate}}</h3></div>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate class="login-form">
+      <div class="form-group inner-addon left-addon ">
+        <div class=" ar-error">
+          <div *ngIf="f.submitted && !username.valid" class="help-block">{{'请输入用户名'|translate}}</div>
+          <div *ngIf="f.submitted && !password.valid && username.valid" class="help-block ">{{'请输入密码'|translate}}</div>
+          <div *ngIf="error" class="">{{error | translate}}</div>
+        </div>
+        <div class="form-group" style="margin-bottom: 25px" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+          <i class="fa fa-user fa-lg fa-fw"></i>
+          <input type="text" class="form-control border-none" name="username" id="username"
+                 placeholder="{{'用户名'|translate}}"
+                 [(ngModel)]="model.username" #username="ngModel" required
+                 (keydown)="onKeydown($event)" autocomplete="off"
+          />
+        </div>
+        <div class="form-group" style="margin-bottom: 25px" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <i class="fa fa-lock fa-lg fa-fw"></i>
+          <input type="text" class="form-control border-none" id="password" name="password"
+                 placeholder="{{'密码'|translate}}"
+                 [(ngModel)]="model.password" #password="ngModel" required
+                 (keydown)="onKeydown($event)" onfocus="this.type='password'"
+          />
+        </div>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn login" style="height: 30px;width: 324px"><span translate>登录</span>
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <ab-login-footerbar></ab-login-footerbar>
+</div>

@@ -1,0 +1,58 @@
+.panel {
+  display: block;
+
+  margin: 0px auto;
+}
+.panel-heading {
+  padding: .75rem 1.25rem;
+  background-color: #a6adb2;
+  margin: 14px;
+  border-radius: 5px;
+}
+
+.panel-heading a {
+  font-size: 14px;
+  font-weight: bold;
+  color:#f5f5f5;
+}
+
+.panel tr,.panel th{
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid #eceeef;
+  /*color:#555;*/
+}
+.panel th{
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #eceeef;
+  /*color:#555;*/
+}
+/*pannel样式*/
+.panel {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+/*.panel-heading {*/
+/*padding: .75rem 1.25rem;*/
+/*background-color: #f5f5f5;*/
+/*border-bottom: 1px solid #e5e5e5;*/
+/*}*/
+.panel-body {
+  padding: 1.25rem;
+  padding-top: 0px;
+}
+
+.panel-body table thead {
+  background-color: #ecf0f1;
+}
+
+
+.table-striped tr:nth-of-type(even) {
+  background-color: #f9fafa;
+}
+

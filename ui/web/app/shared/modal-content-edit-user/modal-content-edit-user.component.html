@@ -1,0 +1,141 @@
+<div class="modal-pending" *ngIf="promptContentSubmit == 1">
+  <div class="modal-pending-spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div>
+</div>
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="modal-title">{{title|translate}}</p>
+</div>
+
+
+<form (ngSubmit)="onRollSubmit()" #userForm="ngForm">
+  <div class="modal-body">
+    <div class="panel-body">
+      <div class="outer">
+        <label for="loginName" class="col-name" translate>
+
+          <span translate class="col-name-span">用户名</span>
+        </label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" id="loginName" placeholder='{{"请输入用户名"|translate}}'
+                 required autocomplete="off"
+                 [(ngModel)]="createUserModel.loginName" name="loginName"
+                 #loginName="ngModel"
+                 pattern='^[^/:*?\"<>|]{1,}$'
+                 (keyup)="onKeyup(createUserModel.loginName,'login')"
+          />
+        </div>
+      </div>
+      <!--用户名错误提示-->
+      <div *ngIf="inputType == 'login'">
+        <div  *ngIf="loginName.touched&&loginName.errors && loginName.errors.required"
+              [class.bubble]="loginName.errors && loginName.errors.required" style="top: 10px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入用户名a</div>
+        </div>
+        <div  *ngIf="loginName.errors && loginName.errors.pattern"
+              [class.bubble]="loginName.errors && loginName.errors.pattern" style="top: 10px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>不支持字符</div>
+        </div>
+        <div *ngIf="!loginName.errors"
+             [class.bubble]="loginNameError!=''" style="top: 10px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg">{{loginNameError|translate}}</div>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="displayName" class="col-name" translate>
+
+          <span translate class="col-name-span">显示名</span>
+        </label>
+        <div class="col-text">
+          <input type="text" class="col-input-text" id="displayName" placeholder='{{"请输入显示名"|translate}}'
+                 required autocomplete="off"
+                 [(ngModel)]="createUserModel.displayName" name="displayName"
+                 #displayName="ngModel"
+                 pattern='^[^/:*?\"<>|]{1,}$'
+                 (keyup)="onKeyup(createUserModel.displayName,'display')"
+          />
+        </div>
+      </div>
+      <!--显示名错误提示-->
+      <div  *ngIf="inputType == 'display'">
+        <div  *ngIf="displayName.touched&&displayName.errors && displayName.errors.required"
+              [class.bubble]="displayName.errors && displayName.errors.required" style="top: 50px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入显示名a</div>
+        </div>
+        <div  *ngIf="displayName.errors && displayName.errors.pattern"
+              [class.bubble]="displayName.errors && displayName.errors.pattern" style="top: 50px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>不支持字符</div>
+        </div>
+        <div *ngIf="!displayName.errors"
+             [class.bubble]="displayNameError!=''" style="top: 50px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg"> {{displayNameError|translate}}</div>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="email" class="col-name" translate>
+
+          <span translate class="col-name-span">邮箱</span>
+        </label>
+        <div class="col-text">
+          <input type="email" class="col-input-text"  id="email" placeholder='{{"请输入邮箱"|translate}}'
+                 required autocomplete="off"
+                 [(ngModel)]="createUserModel.email" name="email"
+                 #email="ngModel"
+                 pattern="^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,128}$"
+                 (keyup)="onKeyup(createUserModel.email,'email')"
+          />
+        </div>
+      </div>
+      <!--邮箱格式-->
+      <div *ngIf="inputType == 'email'">
+        <div  *ngIf="email.touched && email.errors&&email.errors.required"
+              [class.bubble]="email.errors.required" style="top: 90px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入邮箱账号</div>
+        </div>
+        <div  *ngIf="email.errors&&email.errors.pattern"
+              [class.bubble]="email.errors.pattern" style="top: 90px;left: 352px;">
+          <div class="arrow"></div>
+          <div class="bubble_msg" translate>请输入正确的邮箱格式</div>
+        </div>
+      </div>
+      <div class="outer">
+        <label for="description" class="col-name" translate>
+
+          <span translate class="col-name-span">描述</span>
+        </label>
+        <div class="col-textarea">
+        <textarea style="border: 1px solid #ccc;"
+                  [class.borderRed]="desError"
+                  id="description"
+                  [(ngModel)]="createUserModel.description" name="description"
+                  #description="ngModel"
+                  (keyup)="onKeyup(createUserModel.description,'des')"
+        ></textarea>
+        </div>
+      </div>
+      <!--描述错误提示-->
+      <!--<div *ngIf="description.touched">-->
+      <div *ngIf="inputType == 'des'">
+        <div [class.bubble]="desError!=''" style="top: 130px;left: 418px">
+          <div class="arrow"></div>
+          <div class="bubble_msg"> {{desError|translate}}</div>
+        </div>
+      </div>
+      <div class="color_red">{{subError|translate}}</div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" [disabled]="!userForm.form.valid||loginNameError!==''||displayNameError!==''||desError!==''||subError!==''" translate>确定</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close(false)" translate>取消</button>
+  </div>
+</form>

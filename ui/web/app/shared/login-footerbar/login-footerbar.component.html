@@ -1,0 +1,23 @@
+<div class="prompt handle_login" *ngIf="productInfoErr == '3758358534loginProductInfo'">
+  <div class="alert-danger">
+    <ngb-alert type="custom" [dismissible]="false">
+      <strong translate>请联系管理员</strong>{{productInfoErr|translate}}
+    </ngb-alert>
+  </div>
+</div>
+<div class="message" *ngIf="productInfo">
+  <span *ngIf="productInfo.authStatus == 0" translate>当前产品尚未授权</span>
+  <span *ngIf="productInfo.authStatus == 1" translate>当前产品已正式授权，剩余使用天数：无限制</span>
+  <span *ngIf="productInfo.authStatus == 2"><span translate>当前产品为测试版本，剩余试用天数：</span>{{productInfo.remainingTime}}<span translate>天</span></span>
+  <span *ngIf="productInfo.authStatus == 3" translate>当前产品授权已过期，剩余试用/使用天数：0 天</span>
+  <span *ngIf="productInfo.authStatus == 4" translate>当前产品授权已失效， 剩余使用天数：---（当型号和授权码不匹配时，授权码失效）</span>
+</div>
+<div class="logo_eisoo"></div>
+
+<div class="message" *ngIf="versionInfo&&productInfo">
+  <span><span translate>爱数</span> {{productInfo.productName}} {{versionInfo.anyrobot_major}}.{{versionInfo.anyrobot_minor}}.{{versionInfo.anyrobot_reversion}}.{{versionInfo.anyrobot_build}} ({{versionInfo.anyrobot_buildDate}})</span>&nbsp;&nbsp;
+  <span><span translate>型号</span>:{{productInfo.productModel}}</span>
+</div>
+<div class="message ng-binding">
+  <span translate>版权所有</span> © 2016-{{fullYear}} <span translate>上海爱数信息技术股份有限公司</span>
+</div>

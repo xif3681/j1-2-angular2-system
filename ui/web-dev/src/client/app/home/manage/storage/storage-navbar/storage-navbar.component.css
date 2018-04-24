@@ -1,0 +1,31 @@
+aside {
+  /*background-color: #ececec;*/
+  color: #333333;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+aside a {
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 40px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin: 0 15px 0;
+  color: #5A5A5A;
+  margin-bottom: -1px;
+}
+aside a:nth-child(1){
+  margin-left: 40px;
+}
+
+aside a.router-link-active {
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}

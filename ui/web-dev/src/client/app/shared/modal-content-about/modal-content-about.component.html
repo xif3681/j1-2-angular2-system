@@ -1,0 +1,23 @@
+
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+      <span aria-hidden="true" style="color: #000">&times;</span>
+    </button>
+    <p class="modal-title">{{title|translate}}</p>
+  </div>
+  <div class="modal-body" style="height: 139px">
+    <div style="float: left;margin-right: 30px">
+      <img src="../../../res/img/logo.png" alt="AnyRobot">
+    </div>
+    <div style="position: relative;top: -5px;" *ngIf="versionInfo">
+      <p style="font-weight: bold"><span translate>版本</span>：{{versionInfo.anyrobot_major}}.{{versionInfo.anyrobot_minor}}.{{versionInfo.anyrobot_reversion}}.{{versionInfo.anyrobot_build}}</p>
+      <p><span translate>版本时间</span>：{{versionInfo.anyrobot_buildDate}}</p>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <p style="margin: 5px;"><span translate>版权所有： 恒大集团版权所有 Evergrande Group 备案号：粤ICP09102163号
+</span></p>
+    <p ><a href="https://www.eisoo.com" target="_blank" style="color: #009ae7;margin: 5px;">https://www.eisoo.com</a></p>
+  </div>
+
